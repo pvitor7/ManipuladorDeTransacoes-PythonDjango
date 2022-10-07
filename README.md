@@ -1,0 +1,1 @@
+# manipulador-de-transa-es

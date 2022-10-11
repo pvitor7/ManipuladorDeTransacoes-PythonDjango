@@ -3,6 +3,7 @@ from movements.models import Movement
 from movements.serializers import MovementSerializer
 
 
-class MovementsView(generics.ListCreateAPIView):
+class MovementsView(generics.CreateAPIView):
     queryset = Movement.objects.all()
     serializer_class = MovementSerializer
+

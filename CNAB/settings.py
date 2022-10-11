@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'movements',
     'Store',
-    'Transactions'
+    'Transactions',
+    'djmoney',
 ]
 
 MIDDLEWARE = [

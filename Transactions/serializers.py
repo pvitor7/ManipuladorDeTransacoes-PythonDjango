@@ -6,6 +6,5 @@ import ipdb
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['type_transaction', 'date', 'hour', 'value', 'cpf', 'card', 'store', 'operation']
-        
+        fields = ['type_transaction', 'date', 'hour', 'value', 'cpf', 'card', 'user', 'operation', 'store']
         

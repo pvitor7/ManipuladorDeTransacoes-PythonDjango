@@ -2,7 +2,6 @@ import ipdb
 import locale
 from rest_framework import serializers
 from movements.models import Movement
-from Store.serializers import StoreSerializer
 from Store.models import Store
 from Transactions.serializers import TransactionSerializer
 import datetime
@@ -47,9 +46,11 @@ class MovementSerializer(serializers.ModelSerializer):
                 operation = "Saída"
 
             store = {"store": name_store, "owner": owner_store}
+            ipdb.set_trace()
             store_pk, _ = Store.objects.get_or_create(**store)
             if _ == True:
                 store_pk = Store.objects.get(store=name_store)
+
 
             transaction_serializer = TransactionSerializer(
                 data={
@@ -66,4 +67,4 @@ class MovementSerializer(serializers.ModelSerializer):
             transaction_serializer.is_valid(raise_exception=True)
             transaction_serializer.save()
 
-        return super().create(validated_data)
+        return "Informações armazenadas com sucesso!"

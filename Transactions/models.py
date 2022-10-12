@@ -2,6 +2,8 @@ from random import choices
 from unittest.mock import DEFAULT
 import uuid
 from django.db import models
+from Store.models import Store
+from accounts.models import Account
 
 
 class OperationsOptions(models.TextChoices):
@@ -16,5 +18,6 @@ class Transaction(models.Model):
     value = models.CharField(max_length=20)
     cpf = models.CharField(max_length=128)
     card = models.CharField(max_length=128)
-    store = models.ForeignKey('Store.Store', on_delete=models.CASCADE, related_name='transaction')
-    operation = models.CharField(max_length=10, choices=OperationsOptions.choices, default=None, blank=True, null=True)
+    operation = models.CharField(max_length=10, choices=OperationsOptions.choices, default=OperationsOptions.entry)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='user')
+    store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='transaction')

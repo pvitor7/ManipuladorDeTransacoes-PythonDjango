@@ -13,4 +13,4 @@ class StoreSerializer(serializers.ModelSerializer):
             store_pk = Store.objects.get(store=validated_data['store'])
             return store_pk;
         
-        return super().create(validated_data)
+        return store_pk;

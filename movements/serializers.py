@@ -1,4 +1,3 @@
-import ipdb
 import locale
 from rest_framework import serializers
 from movements.models import Movement
@@ -11,8 +10,7 @@ class MovementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movement
         fields = ["file"]
-    
-    
+
     def create(self, validated_data):
 
         for transaction in validated_data["file"]:

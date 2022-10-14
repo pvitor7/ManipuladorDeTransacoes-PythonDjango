@@ -1,9 +1,6 @@
-from random import choices
-from unittest.mock import DEFAULT
 import uuid
 from django.db import models
 from Store.models import Store
-from accounts.models import Account
 
 
 class OperationsOptions(models.TextChoices):

@@ -15,11 +15,57 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_spectacular.views import (SpectacularAPIView, SpectacularSwaggerSplitView, SpectacularRedocView)
+
+####################################################################################################
+
+from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.types import OpenApiTypes
+from rest_framework.views import APIView
+from Transactions.serializers import TransactionSerializer
+from Transactions.models import Transaction
+...
+
+
+
+class TransacoesView(APIView):
+    
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+    
+    @extend_schema(
+        operation_id = 'transaction_post', #(1)
+        parameters=[ #(2)
+          TransactionSerializer,
+          OpenApiParameter("pk", OpenApiTypes.UUID, OpenApiParameter.PATH),
+          OpenApiParameter("queryparam1", OpenApiTypes.UUID, OpenApiParameter.QUERY),
+        ],
+        request=TransactionSerializer, #(3)
+        responses={201: TransactionSerializer}, #(4)
+        description = 'Rota para upload de transações', #(5)
+        summary = 'Upload de transações', #(6)
+        deprecated = True, #(7)
+        tags = ['Upload de transações'], #(8)
+        exclude = True, #(9)
+    )
+    
+    def check_permissions(self, request):
+        return super().check_permissions(request)
+        
+####################################################################################################
+
+urlpatterns = [
+    path('teste/', TransacoesView.as_view()),
+]
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('teste/', TransacoesView.as_view()),
     path('api/', include('movements.urls')),
     path('api/', include('Store.urls')),
     path('api/', include('Transactions.urls')),
-    path('api/', include('accounts.urls')),
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/swagger-doc/', SpectacularSwaggerSplitView.as_view(url_name='schema')),
+    # path('api/redoc/', SpectacularRedocView.as_view(url_name='schema')),
 ]

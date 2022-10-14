@@ -33,13 +33,12 @@ ALLOWED_HOSTS = []
     
 
 MY_APPS = [
-    'accounts',
     'Transactions',
     'movements',
     'Store',
     ]
 
-THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken']
+THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'drf_spectacular']
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -87,6 +86,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CNAB.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Leitor de Transações',
+    'DESCRIPTION': 'A aplicação recebe transações em um arquivo .txt, a trata e registra em um Banco de Dados',
+    'VERSION': '1.0.0',
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -139,5 +147,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AUTH_USER_MODEL = 'accounts.Account'

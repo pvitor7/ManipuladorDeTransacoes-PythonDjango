@@ -11,7 +11,8 @@ class MovementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movement
         fields = ["file"]
-
+    
+    
     def create(self, validated_data):
 
         for transaction in validated_data["file"]:
@@ -46,11 +47,9 @@ class MovementSerializer(serializers.ModelSerializer):
                 operation = "Saída"
 
             store = {"store": name_store, "owner": owner_store}
-            ipdb.set_trace()
             store_pk, _ = Store.objects.get_or_create(**store)
             if _ == True:
                 store_pk = Store.objects.get(store=name_store)
-
 
             transaction_serializer = TransactionSerializer(
                 data={
@@ -67,4 +66,4 @@ class MovementSerializer(serializers.ModelSerializer):
             transaction_serializer.is_valid(raise_exception=True)
             transaction_serializer.save()
 
-        return "Informações armazenadas com sucesso!"
+        return validated_data["file"]

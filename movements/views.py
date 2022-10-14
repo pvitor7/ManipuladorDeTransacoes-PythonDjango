@@ -2,11 +2,14 @@ from rest_framework import generics
 from accounts.permissions import UserPermission
 from movements.models import Movement
 from movements.serializers import MovementSerializer
-from django.forms import model_to_dict
 import ipdb; 
 
 class MovementsView(generics.CreateAPIView):
-    permission_classes = [UserPermission]
     queryset = Movement.objects.all()
     serializer_class = MovementSerializer
 
+    # def perform_create(self, serializer):
+        # ipdb.set_trace()
+        # self.request.data['user'] = self.request.user
+        # print(self.request.user)
+        # serializer.save(user=self.request.user)

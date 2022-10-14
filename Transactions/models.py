@@ -19,5 +19,5 @@ class Transaction(models.Model):
     cpf = models.CharField(max_length=128)
     card = models.CharField(max_length=128)
     operation = models.CharField(max_length=10, choices=OperationsOptions.choices, default=OperationsOptions.entry)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='user')
     store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='transaction')
+    # user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='user')

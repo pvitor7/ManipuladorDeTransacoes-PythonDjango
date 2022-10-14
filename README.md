@@ -1,25 +1,25 @@
-# Panificadora Gustapão / Bakery Gustapão (en)
 
 # Instruções:
 
-## Crie o ambiente virtual
+### Crie o ambiente virtual pelo terminal utilizando o comando:
 
-### python -m venv venv
+#####    - python -m venv venv
 
-##Ative o venv
+### Ative o venv com o comando(linux):
 
-# linux:
+####   - source venv/bin/activate
 
-### source venv/bin/activate
+### Instale as dependências:
 
-### Instale as dependências
+####   - pip install -r requirements.txt
 
-### pip install -r requirements.txt
+### Execute as migrações:
 
-##Execute as migrações
+####   - ./manage.py migrate
 
-### ./manage.py migrate
+### Rode o projeto:
 
+####   - ./manage.py runserver
 
 <h1 align="center">
   Organizador de Transações
@@ -43,14 +43,14 @@
 </h2>
 
 <p align="left">
-  Após seguir gerar o anbiente de desenvolvimento e rodar o projeto, a API estárá disponível atrávez da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
+  Após gerar o ambiente de desenvolvimento e rodar o projeto, a API estárá disponível atrávez da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
 </p>
 
 <p align="center">
   <a href="#endpoints">Endpoints</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
-A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentações. <br/>
+A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentações. Eles podem ser executados direto no navegador. <br/>
 
 <br />
 <br />
@@ -62,7 +62,7 @@ A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentaç�
 ## Rota para upload de movimentações
 
 ```json
-[{ "url": "[https://(http://localhost:8000/api/movments/)" }]
+"https://http://localhost:8000/api/movments/"
 ```
 
 <h2 align ='center'> Realizando upload de arquivo </h2>
@@ -85,12 +85,17 @@ No campo "HTML form", escolha um arquivo navegando pela opção "Escolher arquiv
 ]
 ```
 
-## Rota de movimentações
 
 <h2 align ='center'> Listando Transações </h2>
-Para listar as transações, o usuário receberá a seguinte resposta.
+<br>
+<br>
 
-`GET /transactions - FORMATO DA RESPOSTA - STATUS 200`
+`GET /transactions`
+
+<br>
+<br>
+
+FORMATO DA RESPOSTA - STATUS 200` </p>
 
 ```json
 
@@ -118,7 +123,7 @@ Para listar as transações, o usuário receberá a seguinte resposta.
 <br />
 <br />
 
-## Rotas de Stores
+
 
 <h2 align ='center'> Lista de estabelecimentos </h2>
 
@@ -128,6 +133,9 @@ Para listar as transações, o usuário receberá a seguinte resposta.
 
 
 `FORMATO DA RESPOSTA - STATUS 200`
+
+<br />
+<br />
 
 ```json
 [

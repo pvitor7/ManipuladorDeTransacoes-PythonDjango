@@ -67,5 +67,4 @@ urlpatterns = [
     path('api/', include('Transactions.urls')),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/swagger-doc/', SpectacularSwaggerSplitView.as_view(url_name='schema')),
-    # path('api/redoc/', SpectacularRedocView.as_view(url_name='schema')),
 ]

@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from Transactions.models import Transaction
 from .models import Store
 import ipdb
 
@@ -6,7 +7,7 @@ class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Store
         fields = ['store', 'owner']
-
+        
     def create(self, validated_data):
         store_pk,_ = Store.objects.get_or_create(**validated_data)
         if _:
@@ -14,3 +15,4 @@ class StoreSerializer(serializers.ModelSerializer):
             return store_pk;
         
         return store_pk;
+    

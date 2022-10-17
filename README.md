@@ -1,25 +1,24 @@
+# Panificadora Gustapão / Bakery Gustapão (en)
 
-# Instruções:
+# Instruções
 
-### Crie o ambiente virtual pelo terminal utilizando o comando:
+## Crie o ambiente virtual
 
-#####    - python -m venv venv
+### python -m venv venv
 
-### Ative o venv com o comando(linux):
+## Ative o venv
 
-####   - source venv/bin/activate
+# linux
 
-### Instale as dependências:
+### source venv/bin/activate
 
-####   - pip install -r requirements.txt
+### Instale as dependências
 
-### Execute as migrações:
+### pip install -r requirements.txt
 
-####   - ./manage.py migrate
+## Execute as migrações
 
-### Rode o projeto:
-
-####   - ./manage.py runserver
+### ./manage.py migrate
 
 <h1 align="center">
   Organizador de Transações
@@ -43,14 +42,14 @@
 </h2>
 
 <p align="left">
-  Após gerar o ambiente de desenvolvimento e rodar o projeto, a API estárá disponível atrávez da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
+  Após seguir gerar o anbiente de desenvolvimento e rodar o projeto, a API estárá disponível atrávez da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
 </p>
 
 <p align="center">
   <a href="#endpoints">Endpoints</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
-A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentações. Eles podem ser executados direto no navegador. <br/>
+A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentações. <br/>
 
 <br />
 <br />
@@ -62,7 +61,7 @@ A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentaç�
 ## Rota para upload de movimentações
 
 ```json
-"https://http://localhost:8000/api/movments/"
+[{ "url": "[https://(http://localhost:8000/api/movments/)" }]
 ```
 
 <h2 align ='center'> Realizando upload de arquivo </h2>
@@ -85,17 +84,12 @@ No campo "HTML form", escolha um arquivo navegando pela opção "Escolher arquiv
 ]
 ```
 
+## Rota de movimentações
 
 <h2 align ='center'> Listando Transações </h2>
-<br>
-<br>
+Para listar as transações, o usuário receberá a seguinte resposta.
 
-`GET /transactions`
-
-<br>
-<br>
-
-FORMATO DA RESPOSTA - STATUS 200` </p>
+`GET /transactions - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 
@@ -123,30 +117,82 @@ FORMATO DA RESPOSTA - STATUS 200` </p>
 <br />
 <br />
 
+## Rotas de Stores
 
-
-<h2 align ='center'> Lista de estabelecimentos </h2>
+<h2 align ='center'> Lista Stores </h2>
 
 `GET /stores`
 
 <h2 align ='center'> Requisição </h2>
 
-
 `FORMATO DA RESPOSTA - STATUS 200`
 
-<br />
-<br />
-
 ```json
-[
+{
+ "Stores": [
     {
-        "store": " BAR DO JOÃO      ",
-        "owner": "JOÃO MACEDO  "
-    },
-    {
-        "store": "LOJA DO Ó - MATRIZ",
-        "owner": "MARIA JOSEFINA"
-    },
-    ...
+      "id": 1,
+      "store": " BAR DO JOÃO      ",
+      "owner": "JOÃO MACEDO  ",
+      "transactions": [
+        {
+        "type_transaction": 3,
+        "date": "2019-03-01",
+        "hour": "15:34:53",
+        "value": "142,00",
+        "cpf": "09620676017",
+        "card": "4753****3153",
+        "operation": "Saída",
+        "store": 1
+        },
+        {
+        "type_transaction": 2,
+        "date": "2019-03-01",
+        "hour": "23:42:34",
+        "value": "112,00",
+        "cpf": "09620676017",
+        "card": "3648****0099",
+        "operation": "Saída",
+        "store": 1
+        },
+        },
+            {
+      "id": 2,
+      "store": "LOJA DO Ó - MATRIZ",
+      "owner": "MARIA JOSEFINA",
+      "transactions": [
+        {
+        "type_transaction": 5,
+        "date": "2019-03-01",
+        "hour": "14:56:07",
+        "value": "132,00",
+        "cpf": "55641815063",
+        "card": "3123****7687",
+        "operation": "Entrada",
+        "store": 2
+        },
+        {
+        "type_transaction": 1,
+        "date": "2019-03-01",
+        "hour": "09:00:02",
+        "value": "200,00",
+        "cpf": "55641815063",
+        "card": "1234****3324",
+        "operation": "Entrada",
+        "store": 2
+        },
+        {
+        "type_transaction": 9,
+        "date": "2019-03-01",
+        "hour": "00:00:00",
+        "value": "102,00",
+        "cpf": "55641815063",
+        "card": "6228****9090",
+        "operation": "Saída",
+        "store": 2
+        }
+      }
+    ]
+  }
 ]
 ```

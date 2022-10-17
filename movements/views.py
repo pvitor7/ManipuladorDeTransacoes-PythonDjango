@@ -6,4 +6,3 @@ from rest_framework.views import Response, status
 class MovementsView(generics.CreateAPIView):
     queryset = Movement.objects.all()
     serializer_class = MovementSerializer
-    

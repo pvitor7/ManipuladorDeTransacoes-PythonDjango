@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+migrations/
+db.sqlite3
+.env
+Teste_Back-end
+
+.vscode/

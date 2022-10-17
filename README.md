@@ -1,24 +1,33 @@
-# Panificadora Gustapão / Bakery Gustapão (en)
+# Manupulador de Transações
 
-# Instruções
+## Instruções
 
-## Crie o ambiente virtual
+### Crie o ambiente virtual
 
-### python -m venv venv
+#### - python -m venv venv
 
-## Ative o venv
+### Ative o venv
 
-# linux
+## linux
 
-### source venv/bin/activate
+#### - source venv/bin/activate
 
-### Instale as dependências
+#### Instale as dependências
 
-### pip install -r requirements.txt
+#### - pip install -r requirements.txt
 
-## Execute as migrações
+### Execute as migrações com os comandos
 
-### ./manage.py migrate
+#### - ./manage.py makemigrations
+#### - ./manage.py migrate
+
+### A aplicação também possui testes, para executá-los digite o seguinte comando para ter o resultado no terminal
+#### - ./manage.py test
+
+### Já para executar o servidor e ativar os endpoints, utilize o comando:
+#### - ./manage.py runserver
+
+
 
 <h1 align="center">
   Organizador de Transações
@@ -31,7 +40,7 @@
 </h3>
 
 <p align="center" >
-  As tecnologias utilizadas no projeto foram: Python | Django | Djanfo Rest Framework | SQLite3.
+  As tecnologias utilizadas no projeto foram: Python | Django | Djanfo Rest Framework | SQLite3 | Testes unitários.
 </p>
 
 <br/>
@@ -42,7 +51,7 @@
 </h2>
 
 <p align="left">
-  Após seguir gerar o anbiente de desenvolvimento e rodar o projeto, a API estárá disponível atrávez da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
+  Após seguir gerar o ambiente de desenvolvimento e rodar o projeto, a API estárá disponível atráves da porta local tendo como endereço de base: <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>
 </p>
 
 <p align="center">
@@ -61,7 +70,7 @@ A API tem um total de 3 endpoints, sendo o inicial o para upload de movimentaç�
 ## Rota para upload de movimentações
 
 ```json
-[{ "url": "[https://(http://localhost:8000/api/movments/)" }]
+"url": "http://localhost:8000/api/movments/"
 ```
 
 <h2 align ='center'> Realizando upload de arquivo </h2>
